@@ -70,14 +70,11 @@ const calcular = () => {
       </div>
       <div class="row">
         <div class="col-md-6">
-          <input v-model="estado.numberA" type="number" class="form-control mt-3 mb-3 text-center " placeholder="Coloque o numero">
+          <input @keyup="calcular" v-model="estado.numberA" type="number" class="form-control mt-3 mb-3 text-center " placeholder="Coloque o numero">
         </div>
         <div class="col-md-6">
-          <input v-model="estado.numberB" type="number" class="form-control mt-3 mb-3 text-center " placeholder="Coloque o numero">
+          <input @keyup="calcular" v-model="estado.numberB" type="number" class="form-control mt-3 mb-3 text-center " placeholder="Coloque o numero">
         </div>
-      </div>
-      <div class="row">
-        <button type="submit" class="btn btn-primary">Calcular</button>
       </div>
       <div class="row mt-3 bg-light">
         <h4 class="text-center">O resultado é: {{estado.resultado}}</h4>
