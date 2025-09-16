@@ -22,7 +22,7 @@ const multiplicarNumeros = () => {
   return estado.numberA * estado.numberB
 }
 const divideNumeros = () => {
-  return estado.numberA / estado.numberB
+  return estado.numberB !== 0 ? estado.numberA / estado.numberB: 'Erro: divisão por 0'
 }
 
 
@@ -61,19 +61,19 @@ const calcular = () => {
     </header>
     <form @submit.prevent="calcular">
       <div class="row">
-        <select v-model="estado.filtro" class="form-control text-center">
+        <select @change="calcular" v-model="estado.filtro" class="form-control text-center">
           <option value="somar">Somar (+)</option>
           <option value="subtrair">Subtrair (-)</option>
-          <option value="multiplicar">Muliplicar (X)</option>
+          <option value="multiplicar">Multiplicar (X)</option>
           <option value="dividir">Dividir(÷)</option>
         </select>
       </div>
       <div class="row">
         <div class="col-md-6">
-          <input @keyup="calcular" v-model="estado.numberA" type="number" class="form-control mt-3 mb-3 text-center " placeholder="Coloque o numero">
+          <input @keyup="calcular" v-model.number="estado.numberA" type="number" class="form-control mt-3 mb-3 text-center " placeholder="Coloque o numero">
         </div>
         <div class="col-md-6">
-          <input @keyup="calcular" v-model="estado.numberB" type="number" class="form-control mt-3 mb-3 text-center " placeholder="Coloque o numero">
+          <input @keyup="calcular" v-model.number="estado.numberB" type="number" class="form-control mt-3 mb-3 text-center " placeholder="Coloque o numero">
         </div>
       </div>
       <div class="row mt-3 bg-light">
